@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.graphics-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.graphic {
+    position: absolute;
+    cursor: default;
+    transition: cursor 0.2s ease;
+    pointer-events: none;
+}
+
+.graphic:hover {
+    cursor: pointer;
+}
+
+.graphic-content {
+    position: relative;
+    background: transparent;
+    padding: 0;
+    text-align: center;
+    pointer-events: none;
+}
+
+.graphic-canvas {
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    pointer-events: auto;
+    cursor: default;
+    display: block;
+    border: none;
+    outline: none;
+}
+
+.graphic-canvas:hover {
+    cursor: pointer;
+}
+
+/* Canvas大小比例设置 - 4:3:1:2，考虑原始宽高比 */
+.graphic-1 .graphic-canvas {
+    max-width: 400px; /* 比例4 - 最大 */
+    max-height: 80vh; /* 最大高度限制 */
+    width: auto;
+    height: auto;
+    z-index: 4; /* 最靠前的图层 */
+}
+
+.graphic-2 .graphic-canvas {
+    max-width: 300px; /* 比例3 */
+    max-height: 60vh; /* 按比例缩小高度 */
+    width: auto;
+    height: auto;
+    /* Canvas2是正方形，需要特殊处理 */
+    aspect-ratio: auto;
+    z-index: 3; /* 第二层 */
+}
+
+.graphic-3 .graphic-canvas {
+    max-width: 100px; /* 比例1 - 最小 */
+    max-height: 20vh; /* 按比例缩小高度 */
+    width: auto;
+    height: auto;
+    z-index: 1; /* 最靠后的图层 */
+}
+
+.graphic-4 .graphic-canvas {
+    max-width: 200px; /* 比例2 */
+    max-height: 40vh; /* 按比例缩小高度 */
+    width: auto;
+    height: auto;
+    z-index: 2; /* 第三层 */
+}
+
+.graphic h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.graphic p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.shape {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* 圆形 */
+.circle {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
+/* 方形 */
+.square {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(78, 205, 196, 0.3);
+}
+
+/* 三角形 */
+.triangle {
+    background: linear-gradient(45deg, #45b7d1, #96c93d);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    box-shadow: 0 10px 20px rgba(69, 183, 209, 0.3);
+}
+
+/* 六边形 */
+.hexagon {
+    background: linear-gradient(45deg, #a55eea, #fd79a8);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    box-shadow: 0 10px 20px rgba(165, 94, 234, 0.3);
+}
+
+/* 响应式设计 - 修复移动端适配 */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .graphics-container {
+        height: 100vh;
+        /* 保持绝对定位，避免与JavaScript冲突 */
+    }
+    
+    .graphic {
+        /* 保持绝对定位，让JavaScript控制位置 */
+        position: absolute;
+        margin: 0;
+    }
+    
+    /* 移动端调整图片大小 - 缩小到65% */
+    .graphic-1 .graphic-canvas {
+        max-width: 260px; /* 400px * 0.65 = 260px */
+        max-height: 52vh; /* 80vh * 0.65 = 52vh */
+        width: auto;
+        height: auto;
+    }
+    
+    .graphic-2 .graphic-canvas {
+        max-width: 195px; /* 300px * 0.65 = 195px */
+        max-height: 39vh; /* 60vh * 0.65 = 39vh */
+        width: auto;
+        height: auto;
+        aspect-ratio: auto;
+    }
+    
+    .graphic-3 .graphic-canvas {
+        max-width: 65px; /* 100px * 0.65 = 65px */
+        max-height: 13vh; /* 20vh * 0.65 = 13vh */
+        width: auto;
+        height: auto;
+    }
+    
+    .graphic-4 .graphic-canvas {
+        max-width: 130px; /* 200px * 0.65 = 130px */
+        max-height: 26vh; /* 40vh * 0.65 = 26vh */
+        width: auto;
+        height: auto;
+    }
+}
+
+/* 更小屏幕的额外适配 */
+@media (max-width: 480px) {
+    .graphic-1 .graphic-canvas {
+        max-width: 200px; /* 进一步缩小 */
+        max-height: 40vh; /* 进一步缩小高度 */
+        width: auto;
+        height: auto;
+    }
+    
+    .graphic-2 .graphic-canvas {
+        max-width: 150px;
+        max-height: 30vh;
+        width: auto;
+        height: auto;
+        aspect-ratio: auto;
+    }
+    
+    .graphic-3 .graphic-canvas {
+        max-width: 50px;
+        max-height: 10vh;
+        width: auto;
+        height: auto;
+    }
+    
+    .graphic-4 .graphic-canvas {
+        max-width: 100px;
+        max-height: 20vh;
+        width: auto;
+        height: auto;
+    }
+}
+
+/* 顶部logo */
+.top-logo {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+}
+
+.top-logo img {
+    width: 160px;
+    height: auto;
+}
+
+/* 插画页图片圆角 */
+.illustration-page .image-container img,
+.illustration-page .image-container:hover img {
+    border-radius: 5px;
+}
+
+/* 速写页相册大图无圆角、无白色背景 */
+.sketch-page #gallery-image img {
+    border-radius: 0 !important;
+    background: none !important;
+}
+.sketch-page #gallery-image {
+    background: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+} 

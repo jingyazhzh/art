@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>速写 Sketch | Jingya Zhang</title>
+    <link rel="icon" type="image/png" href="./media/logo.png">
+    <link rel="stylesheet" href="./form.css">
+    <!--背景图-->
+    <style>        
+      body {
+       background-image:url("./media/aaa.jpg");
+       background-position: fixed;
+       background-repeat: repeat;
+       background-attachment: fixed;
+       background-size: fixed;
+       background-color:white;
+       }
+     </style>
+</head>
+
+<body class="sketch-page">
+  <!-- 相册大图容器 -->
+  <div id="gallery-container">
+    <div id="gallery-image"></div>
+    <button id="gallery-prev" class="gallery-nav">&lt;</button>
+    <button id="gallery-next" class="gallery-nav">&gt;</button>
+    <button id="gallery-close" class="gallery-nav">×</button>
+  </div>
+  
+  <!-- 相册文字栏 -->
+  <div id="gallery-text">
+    <p class="gallery-copyright">
+      Copyright ©2020-2025 Jingya Zhang All Rights Reserved.<br></p>
+  </div>
+  
+  <div id="gallery-footer"></div>
+
+  <div style="display: flex;flex-direction: column;height:100%">
+    <div style="flex:1">
+
+<!--Flex文字介绍栏-->
+<br>  <br>  <br> 
+<div class="res">
+    <div class="side">  </div>
+  
+    <div class="ctext">
+      <br>
+      <img src="./media/sketch.png" style="width:60px;margin-top: 20px;margin-bottom: 15px;">
+      <p style="font-family: mil;font-size: 13px; line-height: 23px;"></p>
+    </div>
+  
+    <div class="side">  </div>
+</div>
+
+<!--Flex图片栏1-->
+<div class="res">
+<div class="sketch-side"></div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/a.png" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/b.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/c.jpg" style="border-radius:5px; box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/d.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div class="sketch-side"></div>
+</div>  
+<!--图片栏一行结束-->
+
+  <div style="display:flex; width:100%;height:15px;background-color:white; opacity: 0;margin-left: -10px;">  </div>
+
+  <br>
+
+<!--Flex图片栏2-->
+<div class="res">
+<div class="sketch-side"></div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/1.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/2.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/6.jpg" style="border-radius:5px; box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/8.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div class="sketch-side"></div>
+</div>  
+<!--图片栏二行结束-->
+
+  <div style="display:flex; width:100%;height:15px;background-color:white; opacity: 0;margin-left: -10px;">  </div>
+
+  <br>
+
+<!--Flex图片栏3-->
+<div class="res">
+<div class="sketch-side"></div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/9.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/10.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/11.jpg" style="border-radius:5px; box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/12.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div class="sketch-side"></div>
+</div>  
+<!--图片栏三行结束-->
+
+  <div style="display:flex; width:100%;height:15px;background-color:white; opacity: 0;margin-left: -10px;">  </div>
+
+  <br>
+
+<!--Flex图片栏4-->
+<div class="res">
+<div class="sketch-side"></div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/14.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/15.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/21.jpg" style="border-radius:5px; box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/22.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div class="sketch-side"></div>
+</div>  
+<!--图片栏四行结束-->
+
+  <div style="display:flex; width:100%;height:15px;background-color:white; opacity: 0;margin-left: -10px;">  </div>
+
+  <br>
+
+<!--Flex图片栏5-->
+<div class="res">
+<div class="sketch-side"></div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/25.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/scan20240809_11391008.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/scan20240809_11573189.jpg" style="border-radius:5px; box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/scan20240810_11423407.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div class="sketch-side"></div>
+</div>  
+<!--图片栏五行结束-->
+
+  <div style="display:flex; width:100%;height:15px;background-color:white; opacity: 0;margin-left: -10px;">  </div>
+
+  <br>
+
+<!--Flex图片栏6-->
+<div class="res">
+<div class="sketch-side"></div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/church.jpg" style="border-radius:5px; box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/h.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/t.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div class="sketch-side"></div>
+</div>  
+<!--图片栏六行结束-->
+
+  <div style="display:flex; width:100%;height:15px;background-color:white; opacity: 0;margin-left: -10px;">  </div>
+
+  <br>
+
+<!--Flex图片栏7-->
+<div class="res">
+<div class="sketch-side"></div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/scan20240809_11391008.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/scan20240809_11573189.jpg" style="border-radius:5px;box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18); "></div>
+</div>
+
+<div style="flex:0.02">  </div>
+
+<div class="img2"> 
+    <div class="image-container ratio-based" onclick="openGallery(this)"><img src="./media/s/scan20240810_11423407.jpg" style="border-radius:5px; box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.18);"></div>
+</div>
+
+<div class="sketch-side"></div>
+</div>  
+<!--图片栏七行结束-->
+
+  <div style="display:flex; width:100%;height:15px;background-color:white; opacity: 0;margin-left: -10px;">  </div>
+
+  <br>
+
+<!--FOOTER带图标简洁版-->
+</div>
+
+<div style="height: 90px;">
+
+ <div class="res" style="width:100%;">
+  <div style="width:100px;"> </div>  
+  <div class="ctext">
+   <p style="font-family:mim;font-size: 12px; line-height:15px;  color:rgb(128,128,128);margin-bottom:4px;">
+    Copyright ©2020-2025 Jingya Zhang All Rights Reserved.<br></p>
+   <p style="font-family: mil;font-size: 11px; line-height:14px; color:rgb(128,128,128);margin-bottom:8px;">
+    No part of this website may be used for any purpose unless explicit authorized by Jingya Zhang<br></p>
+  </div>
+  <div style="width:100px;"> </div>  
+  </div>
+
+  <div style="display:flex; flex-direction: row;width:100%; margin-top: -10px;">
+    <div style="flex:1"> </div>  
+
+    <div class="navblock"  onclick="window.open('https://www.instagram.com/jingyazh/')">
+      <img src="./media/inss.png" style="height:13.5px;margin-top: 19.8px;"></div>
+
+      <div style="width:20px"> </div>  
+
+    <div class="navblock" onclick="window.open('https://www.xiaohongshu.com/user/profile/59f3349b4eacab131181ddde')">
+      <img src="./media/redd.png" style="height:12.5px;margin-top: 19.8px;"></div>
+
+      <div style="width:20px"> </div>  
+
+    <!--  <div class="navblock"  onclick="window.open('https://www.instagram.com/klaraz_12/')">
+      <img src="./media/wei.png" style="height:13px;margin-top: 20px;"></div>
+
+      <div style="width:22px"> </div>  -->
+
+     <div class="navblock"  onclick="location.href='mailto:jingyazhzh@gmail.com'">
+       <img src="./media/mail.png" style="height:11px;margin: 21px 0px 20px 0px;"></div>
+
+    <div style="flex:1"> </div>  
+   </div>  
+
+</div>
+<!--Footer结束-->
+ 
+    <!--Flex导航栏-->
+    <div style="background-image:url('./media/aaa.jpg');background-position: fixed;background-repeat: repeat;width:100%;height:60px;position:fixed;opacity: 1;top:0px;left:0;right:0;z-index:1000;"></div>
+  
+ 
+    <div style="display: flex; flex-direction: row; height:60px; 
+    font-family: 'mil'; font-size: 15px;
+    position:fixed;
+    top:0px;
+    width:100%;
+    z-index:1001;
+    padding-left: 30px;
+    padding-right: 30px;">  
+   
+       <div class="siden"> </div>  
+      
+       <!-- 左侧logo -->
+       <div style="padding:16px;margin-left: -12px;"><a href='./index.html'><img src="./media/zuo.png" style="height:28px;"></a></div>
+       
+       <!-- 中间flex区域 -->
+       <div style="display: flex; flex: 1;">
+         <!-- 1、2图标间距 -->
+         <div style="flex: 2;"></div>
+         <!-- 插画图标 -->
+         <div style="padding:20px 0px 0px 40px;" onclick="window.location.href='./index.html'"><img src="./media/menuwor.png" class="navblock"></div>
+         <!-- 其他间距 -->
+         <div style="flex: 0.25;"></div>
+         <!-- 装置图标 -->
+         <div style="padding:20px 0px 0px 40px;" onclick="window.location.href='./速写.html'"><img src="./media/menuske.png" class="navblock"></div>
+         <!-- 其他间距 -->
+         <div style="flex: 0.25;"></div>
+         <!-- 速写图标 -->
+         <div style="padding:20px 0px 0px 8px;" onclick="window.location.href='./门.html'"><img src="./media/menuthe.png" class="navblock"></div>
+         <!-- 其他间距 -->
+         <div style="flex: 0.25;"></div>
+       </div>
+       
+       <!-- 右侧关于图标 -->
+       <div style="padding:20px 0px 0px 40px; margin-right:-15px;" onclick="window.location.href='./关于.html'"><img src="./media/menuabo.png" class="navblock"></div>
+  
+       <!--手机导航Ham标志 - 独立定位，不参与导航栏flex布局-->
+       <div class="caidan" style="position: fixed; top: 0; right: 0; width: 100px; height: 60px; z-index: 1001; text-align: center;">
+        <div class="ham-icon" style="cursor: pointer; padding: 21px 8px 21px 0;">
+         <img src="./media/hamm.png" style="width:22px;">
+        </div>
+       </div>
+  
+       <div class="siden"> </div>
+      </div>
+  
+        <!--导航栏下划线-->
+      <div style="display:flex;top:43px;position:fixed;width:100%;">
+        <div><img src="./media/heng.png" width="100%"></div>
+        </div>
+         <div class="mobile-nav">
+          <div class="mobile-nav-content" style="display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; width: 100% !important; height: 100% !important; padding: 20px !important;">
+            <!-- 四个主要导航项 -->
+            <div class="mobile-nav-items" style="display: flex !important; flex-direction: column !important; align-items: center !important; margin-bottom: 40px !important;">
+              <div class="mobile-nav-item" onclick="window.location.href='./index.html'" style="display: flex !important; align-items: center !important; justify-content: center !important; margin: 15px 0 !important; cursor: pointer !important; padding: 10px !important; border-radius: 5px !important;">
+                <img src="./media/elwor.png" alt="插画" style="display: block !important; height: 36px !important; width: auto !important;">
+              </div>
+              <div class="mobile-nav-item" onclick="window.location.href='./速写.html'" style="display: flex !important; align-items: center !important; justify-content: center !important; margin: 15px 0 !important; cursor: pointer !important; padding: 10px !important; border-radius: 5px !important;">
+                <img src="./media/elskes.png" alt="装置" style="display: block !important; height: 36px !important; width: auto !important;">
+              </div>
+              <div class="mobile-nav-item" onclick="window.location.href='./门.html'" style="display: flex !important; align-items: center !important; justify-content: center !important; margin: 15px 0 !important; cursor: pointer !important; padding: 10px !important; border-radius: 5px !important;">
+                <img src="./media/elthe.png" alt="速写" style="display: block !important; height: 36px !important; width: auto !important;">
+              </div>
+              <div class="mobile-nav-item" onclick="window.location.href='./关于.html'" style="display: flex !important; align-items: center !important; justify-content: center !important; margin: 15px 0 !important; cursor: pointer !important; padding: 10px !important; border-radius: 5px !important;">
+                <img src="./media/elabo.png" alt="关于" style="display: block !important; height: 36px !important; width: auto !important;">
+              </div>
+            </div>
+            
+            <!-- 社交媒体图标 -->
+            <div class="mobile-social-icons" style="display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: center !important; gap: 20px !important;">
+              <div class="mobile-social-icon" onclick="window.open('https://www.instagram.com/jingyazh/')" style="display: flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important; padding: 10px !important; border-radius: 5px !important;">
+                <img src="./media/inss.png" alt="Instagram" style="height: 15px !important; width: auto !important;">
+              </div>
+              <div class="mobile-social-icon" onclick="window.open('https://www.xiaohongshu.com/user/profile/59f3349b4eacab131181ddde')" style="display: flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important; padding: 10px !important; border-radius: 5px !important;">
+                <img src="./media/redd.png" alt="Reddit" style="height: 15px !important; width: auto !important;">
+              </div>
+             <!-- <div class="mobile-social-icon" onclick="window.open('https://www.instagram.com/klaraz_12/')" style="display: flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important; padding: 10px !important; border-radius: 5px !important;">
+                <img src="./media/wei.png" alt="Weibo" style="height: 15px !important; width: auto !important;">
+              </div> -->
+              <div class="mobile-social-icon" onclick="location.href='mailto:jingyazhzh@gmail.com'" style="display: flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important; padding: 10px !important; border-radius: 5px !important;">
+                <img src="./media/mail.png" alt="Email" style="height: 15px !important; width: auto !important;">
+              </div>
+            </div>
+          </div>
+         </div>
+    <!--导航栏结束-->
+</div>
+
+</body>
+<script>
+// 移动端导航栏功能
+window.onload = function() {
+    // 移动端导航栏 - 简化逻辑
+    const hamIcon = document.querySelector('.ham-icon');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const caidanDiv = document.querySelector('.caidan');
+    
+    if (hamIcon && mobileNav) {
+        console.log('导航栏元素找到');
+        
+        // 为汉堡图标添加点击事件
+        hamIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('汉堡图标被点击');
+            
+            // 切换导航栏显示状态
+            if (mobileNav.classList.contains('show')) {
+                // 隐藏导航栏
+                mobileNav.classList.remove('show');
+                console.log('导航栏隐藏');
+            } else {
+                // 显示导航栏
+                mobileNav.classList.add('show');
+                console.log('导航栏显示');
+            }
+        });
+        
+        // 添加点击导航栏外部关闭功能
+        document.addEventListener('click', function(e) {
+            if (!mobileNav.contains(e.target) && !caidanDiv.contains(e.target)) {
+                if (mobileNav.classList.contains('show')) {
+                    mobileNav.classList.remove('show');
+                    console.log('点击外部关闭导航栏');
+                }
+            }
+        });
+        
+        // 添加窗口大小变化监听
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 810) {
+                // 非移动端宽度下自动隐藏导航栏
+                if (mobileNav.classList.contains('show')) {
+                    mobileNav.classList.remove('show');
+                    console.log('窗口大小变化，隐藏导航栏');
+                }
+            }
+        });
+    }
+};
+
+// 相册功能
+let currentImageIndex = 0;
+const images = Array.from(document.querySelectorAll('.image-container img')).map(img => img.src);
+
+// 触摸滑动相关变量
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isGalleryOpen = false;
+
+function openGallery(container) {
+    const img = container.querySelector('img');
+    currentImageIndex = images.indexOf(img.src);
+    updateGallery();
+    document.getElementById('gallery-container').style.display = 'flex';
+    document.getElementById('gallery-text').style.display = 'flex';
+    document.getElementById('gallery-footer').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    isGalleryOpen = true;
+    
+    // 添加触摸事件监听
+    addTouchListeners();
+}
+
+function updateGallery() {
+    const galleryImage = document.getElementById('gallery-image');
+    const galleryFooter = document.getElementById('gallery-footer');
+    
+    // 更新主图
+    galleryImage.innerHTML = `<img src="${images[currentImageIndex]}" style="max-width: 100%; max-height: 80vh;">`;
+    
+    // 更新底部缩略图
+    galleryFooter.innerHTML = `
+        <div class="gallery-thumbnails">
+            ${images.map((src, index) => `
+                <div class="gallery-thumbnail ${index === currentImageIndex ? 'active' : ''}" 
+                     onclick="showImage(${index})">
+                    <img src="${src}" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            `).join('')}
+        </div>
+    `;
+    
+    // 居中当前选中的缩略图
+    centerActiveThumbnail();
+}
+
+function centerActiveThumbnail() {
+    const thumbnailsContainer = document.querySelector('.gallery-thumbnails');
+    const activeThumbnail = document.querySelector('.gallery-thumbnail.active');
+    
+    if (thumbnailsContainer && activeThumbnail) {
+        const containerWidth = thumbnailsContainer.offsetWidth;
+        const thumbnailWidth = 45; // 缩略图宽度
+        const gap = 5; // 间距
+        const activeIndex = currentImageIndex;
+        
+        // 计算当前缩略图应该的位置
+        const activePosition = activeIndex * (thumbnailWidth + gap);
+        const centerPosition = containerWidth / 2 - thumbnailWidth / 2;
+        
+        // 计算需要滚动的距离
+        const scrollLeft = activePosition - centerPosition;
+        
+        // 应用滚动
+        thumbnailsContainer.scrollLeft = scrollLeft;
+    }
+}
+
+function showImage(index) {
+    currentImageIndex = index;
+    updateGallery();
+}
+
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    updateGallery();
+}
+
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    updateGallery();
+}
+
+function closeGallery() {
+    document.getElementById('gallery-container').style.display = 'none';
+    document.getElementById('gallery-text').style.display = 'none';
+    document.getElementById('gallery-footer').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    isGalleryOpen = false;
+    
+    // 移除触摸事件监听
+    removeTouchListeners();
+}
+
+// 触摸事件处理
+function addTouchListeners() {
+    const galleryContainer = document.getElementById('gallery-container');
+    galleryContainer.addEventListener('touchstart', handleTouchStart, { passive: false });
+    galleryContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+    galleryContainer.addEventListener('touchend', handleTouchEnd, { passive: false });
+}
+
+function removeTouchListeners() {
+    const galleryContainer = document.getElementById('gallery-container');
+    galleryContainer.removeEventListener('touchstart', handleTouchStart);
+    galleryContainer.removeEventListener('touchmove', handleTouchMove);
+    galleryContainer.removeEventListener('touchend', handleTouchEnd);
+}
+
+function handleTouchStart(e) {
+    if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }
+}
+
+function handleTouchMove(e) {
+    if (e.touches.length === 1) {
+        e.preventDefault(); // 防止页面滚动
+    }
+}
+
+function handleTouchEnd(e) {
+    if (e.changedTouches.length === 1) {
+        touchEndX = e.changedTouches[0].clientX;
+        touchEndY = e.changedTouches[0].clientY;
+        
+        // 计算滑动距离
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        
+        // 判断是否为水平滑动（水平距离大于垂直距离且大于50px）
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+            if (deltaX > 0) {
+                // 向右滑动，显示上一张
+                prevImage();
+            } else {
+                // 向左滑动，显示下一张
+                nextImage();
+            }
+        }
+    }
+}
+
+// 关闭相册
+document.getElementById('gallery-close').onclick = closeGallery;
+
+// 键盘控制
+document.addEventListener('keydown', function(e) {
+    if (document.getElementById('gallery-container').style.display === 'flex') {
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'Escape') closeGallery();
+    }
+});
+
+// 初始化相册容器
+document.getElementById('gallery-container').style.display = 'none';
+document.getElementById('gallery-text').style.display = 'none';
+document.getElementById('gallery-footer').style.display = 'none';
+
+// 绑定导航按钮事件
+document.getElementById('gallery-prev').onclick = prevImage;
+document.getElementById('gallery-next').onclick = nextImage;
+
+// 新增：基于图片原始长宽比计算比例系数
+function calculateImageRatios() {
+    console.log('开始计算图片比例系数...');
+    
+    // 获取所有图片行
+    const imageRows = document.querySelectorAll('.res');
+    
+    imageRows.forEach((row, rowIndex) => {
+        // 获取当前行中的所有图片容器
+        const imageContainers = row.querySelectorAll('.image-container');
+        
+        if (imageContainers.length > 1) {
+            console.log(`处理第 ${rowIndex + 1} 行，包含 ${imageContainers.length} 张图片`);
+            
+            // 收集图片的原始尺寸
+            const imageData = [];
+            const images = [];
+            
+            imageContainers.forEach((container, index) => {
+                const img = container.querySelector('img');
+                if (img) {
+                    images.push(img);
+                    
+                    // 获取图片的原始尺寸
+                    const originalWidth = img.naturalWidth;
+                    const originalHeight = img.naturalHeight;
+                    
+                    if (originalWidth > 0 && originalHeight > 0) {
+                        const ratio = originalWidth / originalHeight;
+                        imageData.push({
+                            index: index,
+                            ratio: ratio,
+                            width: originalWidth,
+                            height: originalHeight
+                        });
+                        console.log(`图片 ${index + 1}: ${originalWidth}x${originalHeight}, 长宽比 ${ratio.toFixed(2)}`);
+                    } else {
+                        // 如果无法获取原始尺寸，使用默认比例
+                        imageData.push({
+                            index: index,
+                            ratio: 1,
+                            width: 100,
+                            height: 100
+                        });
+                        console.log(`图片 ${index + 1}: 使用默认长宽比 1.00`);
+                    }
+                }
+            });
+            
+            // 计算比例系数
+            const maxRatio = Math.max(...imageData.map(data => data.ratio));
+            const minRatio = Math.min(...imageData.map(data => data.ratio));
+            
+            console.log(`最大长宽比: ${maxRatio.toFixed(2)}, 最小长宽比: ${minRatio.toFixed(2)}`);
+            
+            // 计算每张图片相对于最大长宽比的比例系数
+            const flexRatios = imageData.map(data => {
+                const flexRatio = data.ratio / maxRatio;
+                console.log(`图片 ${data.index + 1} 比例系数: ${flexRatio.toFixed(2)}`);
+                return flexRatio;
+            });
+            
+            // 应用比例系数到容器
+            imageContainers.forEach((container, index) => {
+                const flexRatio = flexRatios[index];
+                const img2Container = container.closest('.img2');
+                
+                if (img2Container) {
+                    // 设置flex比例
+                    img2Container.style.flex = flexRatio;
+                    console.log(`设置容器 ${index + 1} 的flex比例为: ${flexRatio.toFixed(2)}`);
+                }
+            });
+        }
+    });
+    
+    console.log('图片比例系数计算完成！');
+}
+
+// 页面加载完成后执行
+window.addEventListener('load', function() {
+    console.log('页面加载完成，开始计算图片比例系数...');
+    
+    // 等待图片加载完成后再计算
+    const allImages = document.querySelectorAll('.image-container img');
+    const loadedImages = Array.from(allImages).filter(img => img.complete);
+    
+    if (loadedImages.length === allImages.length) {
+        calculateImageRatios();
+    } else {
+        // 等待所有图片加载完成
+        Promise.all(Array.from(allImages).map(img => {
+            if (img.complete) {
+                return Promise.resolve(img);
+            } else {
+                return new Promise(resolve => {
+                    img.onload = () => resolve(img);
+                    img.onerror = () => resolve(img);
+                });
+            }
+        })).then(() => {
+            calculateImageRatios();
+        });
+    }
+    
+    // 监听窗口大小变化
+    window.addEventListener('resize', function() {
+        console.log('窗口大小变化，重新计算比例系数...');
+        calculateImageRatios();
+    });
+});
+</script>
+</html>

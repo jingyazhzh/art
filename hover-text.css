@@ -1,0 +1,32 @@
+/* 悬停文字专用样式 */
+@font-face {
+    font-family: 'MiSans-Light';
+    src: url('media/MiSans-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.hover-text {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #808080;
+    font-family: 'MiSans-Light', 'SimHei', '黑体', sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.hover-text.show {
+    opacity: 1;
+}
+
+/* 默认显示的文字 */
+.hover-text.default {
+    opacity: 1;
+    color: #a0a0a0; /* 更深的灰色 */
+} 

@@ -1,0 +1,1321 @@
+* {
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+html, body{height:100%}
+
+
+/*手机端*/
+@media (max-width:810px) {
+  .res{display:flex; flex-direction: column;}
+  .ham{display:block}
+  .navblock{display:none;}
+  .ham-toggle{
+    display: block !important;
+    position: absolute !important;
+    opacity: 0 !important;
+    pointer-events: auto !important;
+    z-index: 1002 !important;
+    width: 50px !important;
+    height: 50px !important;
+    top: 5px !important;
+    right: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    cursor: pointer !important;
+  }
+  .ham-toggle-label{
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    z-index: 1003 !important;
+    margin-top: 10px;
+  }
+  .sketchnav{display:none}
+  .caidan{display: block;}
+  
+  /* 移动端导航栏隐藏中间菜单项，只保留logo和汉堡菜单 */
+  .navblock{display: none !important;}
+  
+  /* 隐藏中间的菜单项div */
+  div[onclick*="window.location.href"] {
+    display: none !important;
+  }
+  
+  /* 移动端导航栏图标位移设置 */
+  /* hamm.png 向右10px位移 */
+  .ham-icon img[src*="hamm.png"] {
+    transform: translateX(10px);
+  }
+  
+  /* zuo.png 向左10px位移 */
+  a[href='./主页.html'] img[src*="zuo.png"] {
+    transform: translateX(-10px);
+  }
+  
+  /* 统一移动端留白系统 - 使用30px作为标准留白 */
+  /*居中文字段*/
+  .ctext{text-align: center; margin-left:30px; margin-right: 30px;}
+  .lt1{text-align: left; margin-left:30px; margin-right: 30px;}
+  .lt2{text-align: left; margin-left:30px; margin-right: 30px;}
+  
+  /*插画页图片手机边距*/
+  .code1{ margin:10px 30px; }
+  .code13{ margin:10px 30px; }
+  
+  /*Sketch图片手机边距*/
+  .img1{ margin:10px 30px; }
+  .img2{ margin:10px 30px; }
+  
+  /* 移动端side栏设置 - 只隐藏内容区域的side栏，不动导航栏 */
+  .res .side{display:none;} 
+  .res .sketch-side{display:none;}
+  
+  /* 移除重复的右边留白设置，因为已经在上面统一设置了 */
+  /* .code1:last-child, .code13:last-child, .img1:last-child, .img2:last-child {
+    margin-right: 30px;
+  } */
+  
+  .add60{margin-left: 30px;}
+  
+  /* 插画页和速写页专门的移动端格式 - 真正的单列布局 */
+  .illustration-page .res,
+  .sketch-page .res {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .illustration-page .side,
+  .sketch-page .side,
+  .illustration-page .sketch-side,
+  .sketch-page .sketch-side {
+    display: none;
+  }
+  
+  .illustration-page .ctext,
+  .sketch-page .ctext {
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  
+  .illustration-page .code1,
+  .illustration-page .code13,
+  .sketch-page .img1,
+  .sketch-page .img2 {
+    margin: 10px 30px;
+    width: calc(100% - 60px);
+  }
+  
+  /* 隐藏插画页和速写页中的间距元素 */
+  .illustration-page [style*="flex:0.03"],
+  .sketch-page [style*="flex:0.02"] {
+    display: none;
+  }
+ 
+  /* 导航栏移动端留白设置 - 使用更高优先级 */
+  nav {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  
+  #gallery-close {
+    position: fixed;
+    top: 35px;
+    right: 15px;
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: 'mil', sans-serif;
+    font-size: 40px; /* 移动端字号放大至原来的2倍 */
+    color: #999;
+    transition: color 0.3s ease;
+    z-index: 3002;
+  }
+  
+  /* 移动端隐藏左右箭头按钮 */
+  #gallery-prev,
+  #gallery-next {
+    display: none !important;
+  }
+  
+  /* 移动端相册文字栏样式 */
+  .illustration-page #gallery-text {
+    bottom: 45px; /* 移动端底部缩略图高度为45px，文字栏跟随缩略栏一起向下 */
+    height: 18px; /* 从32px减少到18px，因为只有一行字 */
+  }
+  
+  /* 移动端插画页相册图片区域高度调整 */
+  .illustration-page #gallery-image {
+    height: calc(100vh - 63px); /* 减去文字栏18px和底部缩略图45px */
+  }
+  
+  .gallery-thumbnail {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  #gallery-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3001;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  #gallery-image {
+    width: 100%;
+    height: calc(100vh - 45px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* 非移动端导航栏位移设置 */
+@media (min-width: 811px) {
+  /* zuo.png 向左30px位移 */
+  a[href='./主页.html'] img[src*="zuo.png"] {
+    transform: translateX(-30px);
+  }
+  
+  /* 减少导航栏菜单项间距，让左右两侧图标能够更好地向中央收缩 */
+  div[onclick*="window.location.href='./插画.html'"],
+  div[onclick*="window.location.href='./装置.html'"],
+  div[onclick*="window.location.href='./速写.html'"],
+  div[onclick*="window.location.href='./关于.html'"] {
+    padding-left: 20px !important; /* 从40px减少到20px */
+  }
+  
+  /* 在更小的非移动端窗口中进一步减少间距 */
+  @media (max-width: 1200px) {
+    div[onclick*="window.location.href='./插画.html'"],
+    div[onclick*="window.location.href='./装置.html'"],
+    div[onclick*="window.location.href='./速写.html'"],
+    div[onclick*="window.location.href='./关于.html'"] {
+      padding-left: 15px !important; /* 进一步减少到15px */
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    div[onclick*="window.location.href='./插画.html'"],
+    div[onclick*="window.location.href='./装置.html'"],
+    div[onclick*="window.location.href='./速写.html'"],
+    div[onclick*="window.location.href='./关于.html'"] {
+      padding-left: 10px !important; /* 进一步减少到10px */
+    }
+  }
+}
+
+ 
+/*手机端菜单导航 格式*/
+.ham-toggle {
+  display: none; /* 默认隐藏checkbox */
+}
+
+nav {
+  position: fixed !important;
+  text-align: center !important;
+  top: 60px !important;
+  left: 30px !important;
+  right: 30px !important;
+  background-color: rgba(235, 235, 235, 0.9) !important;
+  height: 100vh !important;
+  transform: scale(1,0) !important;
+  transform-origin: top !important;
+  transition: transform 90ms ease-in-out !important;
+  z-index: 1000 !important;
+  box-sizing: border-box !important;
+  width: auto !important;
+}
+
+/* 新的移动端导航栏样式 */
+.mobile-nav {
+  position: fixed !important;
+  top: 60px !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  z-index: 999 !important;
+  display: none !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100vw !important;
+  height: calc(100vh - 60px) !important;
+}
+
+/* 速写页特殊背景纹理 */
+.sketch-page .mobile-nav {
+  background-image: url('./media/素描纸1.jpg') !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 移动端宽度下显示 */
+@media (max-width: 810px) {
+  .mobile-nav.show {
+    display: flex !important;
+  }
+  
+  /* 调试样式 - 强制显示菜单内容 */
+  .mobile-nav-items {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-bottom: 40px !important;
+  }
+  
+  .mobile-nav-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 15px 0 !important;
+    cursor: pointer !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    transition: background-color 0.3s ease !important;
+  }
+  
+  .mobile-nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  .mobile-nav-item img {
+    display: block !important;
+    height: 36px !important;
+    width: auto !important;
+  }
+}
+
+/* 非移动端宽度下强制隐藏 */
+@media (min-width: 811px) {
+  .mobile-nav {
+    display: none !important;
+  }
+  .mobile-nav.show {
+    display: none !important;
+  }
+}
+
+.mobile-nav-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 20px !important;
+}
+
+.mobile-nav-items {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin-bottom: 40px !important;
+}
+
+.mobile-nav-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 15px 0 !important;
+  cursor: pointer !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.mobile-nav-item:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.mobile-nav-item img {
+  display: block !important;
+  height: 36px !important;
+  width: auto !important;
+}
+
+.mobile-social-icons {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 20px !important;
+}
+
+.mobile-social-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.mobile-social-icon:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.mobile-social-icon img {
+  height: 15px !important;
+  width: auto !important;
+}
+
+.ham-toggle:checked ~ nav {
+  transform: scale(1,1);
+}
+
+.ham-toggle:checked ~ .mobile-nav {
+  transform: scale(1,1) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.caidantext {
+  font-family: mil;
+  font-size: 30px;
+  color: rgb(77, 77, 77);
+  opacity: 1;
+  cursor: pointer;
+  margin: 0;
+  display: block;
+  text-align: center;
+}
+
+
+
+/*网页端*/
+@media (min-width:1440px) {
+  .res{display:flex; flex-direction: row;}
+  .ham{display:none}
+  .ham-toggle{display: none;}
+  .caidan{display: none;}
+  .sketchnav{display:block}
+
+ /*居中文字段*/  
+ .ctext{text-align: center;flex:1;}
+
+  /*插画页图片box宽度比例*/
+  .code1{ flex:1;}
+  .code13{flex:1.3333;}
+  .side{flex:0.4;}
+  .siden{flex:0.22}
+
+  /*Sketch图片比例*/
+  .img1{ flex:1}
+  .img2{ flex:2}
+  .sketch-side{flex:1;}
+
+  /* 速写页图片间距 */
+  .sketch-page .img2 {
+    margin-right: 10px;
+  }
+  .sketch-page .img2:last-child {
+    margin-right: 0;
+  }
+}
+
+/*IPAD网页端*/
+@media (min-width:810px) and (max-width:1440px){
+  .res{display:flex; flex-direction: row;}
+  .ham{display:none}
+  .ham-toggle{display: none;}
+  .caidan{display: none;}
+  .sketchnav{display:block}
+
+ /*居中文字段*/  
+ .ctext{text-align: center; flex:1;}  
+
+  /*插画页图片box宽度比例*/
+  .code1{ flex:1;}
+  .code13{flex:1.3333;}
+  .side{width:105px;}
+  .siden{width:95px;}
+
+ /*Sketch图片比例*/
+ .img1{ flex:1}
+ .img2{ flex:2}
+ .sketch-side{width:105px;}
+
+ /* 速写页图片间距 */
+ .sketch-page .img2 {
+   margin-right: 10px;
+ }
+ .sketch-page .img2:last-child {
+   margin-right: 0;
+ }
+}
+
+/*手机端*/
+@media (min-width:000px) and (max-width:810px) {
+  /* 删除这个重复的媒体查询 */
+}
+
+ @font-face {
+    font-family: 'mib';
+    src: url('media/MiSans-Bold.ttf');
+  }
+ @font-face {
+    font-family: 'mil';
+    src: url('media/MiSans-Light.ttf');
+  }
+  @font-face {
+    font-family: 'mim';
+    src: url('media/MiSans-Medium.ttf');
+  }
+
+
+
+.ctext{font-family: mil;font-size: 13px; line-height:23px; color:rgb(77, 77, 77);}
+.ti1 {font-family:mim; font-size: 12.5px;line-height: 15px;margin:7px 0px 9px 0px;color:rgb(77, 77, 77);}
+.ti2{font-family:mil; font-size: 11px;line-height: 13px;margin:-5px 0px 20px 0px; color:rgb(77, 77, 77);}
+
+.lt1{font-family:mim;font-size: 13px; line-height:23px;  text-align: left; flex:1;color:rgb(77, 77, 77);}
+.lt2{font-family:mil;font-size: 13px; line-height:23px;  text-align: left; flex:1;color:rgb(77, 77, 77);}
+
+
+
+/* ABOUT 账号 鼠标悬停 */
+.ins{font-family:mil;font-size: 13px; line-height:23px;  text-align: left; flex:1;color:rgb(107, 107, 177);cursor:pointer;}
+.ins:hover{font-family:mim;font-size: 13px; line-height:23px;  text-align: left; flex:1;color:rgb(107, 107, 177);cursor:pointer;}
+
+/* 速写页  NAV 鼠标悬停 */
+.covertitle{
+  cursor:pointer;
+  color:rgb(77, 77, 77)}
+
+  .covertitle:hover{
+    color:rgba(155,155,155,1);}
+
+/* 鼠标悬停放大box */
+
+.img1 {
+  box-sizing:border-box;
+  padding-bottom: -5px;
+  cursor: pointer;
+}
+
+.img2 {
+  box-sizing:border-box;
+  padding-bottom: -5px;
+  cursor: pointer;
+}
+
+.hove {
+  cursor: pointer;
+}
+
+/* 鼠标悬停放大box
+.code1:hover {
+  position: relative;
+  transform: scale(1.025);
+  transition: 0.4s;}
+.code13:hover {
+  position: relative;
+  transform: scale(1.025);
+  transition: 0.4s;}
+*/
+
+/* NAV 菜单键 悬停变白图片*/
+.navblock{
+  cursor:pointer;
+  opacity:1;
+  height:19px;margin-top: 3px;text-align: end;}
+.navblock:hover{
+  opacity: 0.4;
+  transition:0.35s;
+  cursor:pointer;
+}
+
+
+/* 通用悬停变白box*/
+.cover{overflow: hidden; position:relative;}
+.cover::before{
+  content:'';
+  opacity:0;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(255, 255, 255, 0.6);
+  position: absolute;
+  Left: 0;  
+  Top: 0;}
+.cover:hover::before{
+  opacity:1;
+  transition:0.25s;
+  cursor:pointer;
+}
+
+/* 悬停变灰box*/
+.coverg{overflow: hidden; position:relative;}
+.coverg::before{
+  content:'';
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(217, 217,217,0.4);
+  opacity:0;
+  position: absolute;
+  Left: 0;  
+  Top: 0;}
+.coverg:hover::before{
+  opacity:1;
+  transition:0.25s;
+  cursor:pointer;
+}
+
+/* 图片容器样式 */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.45s ease;
+  border-radius: 5px;
+  display: block;
+}
+
+/* 插画页容器样式 */
+.code1, .code13 {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 插画页面图片容器样式 */
+.illustration-page .image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.45s ease;
+}
+
+/* 插画页容器蒙版效果 */
+.code1::before, .code13::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.15) 82.5%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.15) 82.5%, rgba(0, 0, 0, 0.3) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+  transform: scale(1.1);
+  transform-origin: center;
+}
+
+/* 速写页容器样式 */
+.img1, .img2 {
+  cursor: pointer;
+  box-sizing: border-box;
+  padding-bottom: -5px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* 速写页容器蒙版效果 */
+.img1::before, .img2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.15) 82.5%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.15) 82.5%, rgba(0, 0, 0, 0.3) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+  transform: scale(1.1);
+  transform-origin: center;
+}
+
+/* 插画页容器悬停效果 */
+.code1:hover .image-container img,
+.code13:hover .image-container img {
+  transform: scale(1.025);
+}
+
+.code1:hover .image-container::before,
+.code13:hover .image-container::before {
+  opacity: 1;
+}
+
+.code1:hover .ti1,
+.code13:hover .ti1,
+.code1:hover .ti2,
+.code13:hover .ti2 {
+  color: #999;
+  transition: color 0.45s ease;
+}
+
+/* 速写页容器悬停效果 */
+.img1:hover .image-container img,
+.img2:hover .image-container img {
+  transform: scale(1.025);
+}
+
+.img1:hover .image-container::before,
+.img2:hover .image-container::before {
+  opacity: 1;
+}
+
+/* 图片容器悬停效果 */
+.image-container:hover img {
+  transform: scale(1.025);
+}
+
+.image-container:hover::before {
+  opacity: 1;
+}
+
+.suofang{flex:1;overflow:hidden; width:100%;}
+.suofangkuang{overflow:hidden;}
+  .code{
+    overflow:hidden;
+    position:relative;
+  }
+
+.gallery-thumbnail {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  min-height: 45px;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+}
+
+.gallery-thumbnail.active {
+  border-color: transparent;
+}
+
+.gallery-thumbnail.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  border-radius: 0;
+}
+
+.gallery-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 3px;
+}
+
+.gallery-thumbnail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  border-radius: 0;
+}
+
+.gallery-thumbnail:hover::before {
+  opacity: 1;
+}
+
+.gallery-thumbnails {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.gallery-fade {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-fade.hidden {
+  opacity: 0;
+}
+
+#gallery-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 3000;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#gallery-image {
+  width: 100%;
+  height: calc(100vh - 55px);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#gallery-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+}
+
+#gallery-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3001;
+  height: 55px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#gallery-prev,
+#gallery-next {
+  display: none;
+}
+
+#gallery-close {
+  position: fixed;
+  top: 35px;
+  right: 15px;
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-family: 'mil', sans-serif;
+  font-size: 40px; /* 移动端字号放大至原来的2倍 */
+  color: #999;
+  transition: color 0.3s ease;
+  z-index: 3002;
+}
+
+/* ===== 插画页相册样式 ===== */
+.illustration-page #gallery-container {
+  background: #f0f0f0;
+}
+
+.illustration-page #gallery-footer {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.illustration-page #gallery-prev,
+.illustration-page #gallery-next {
+  display: block;
+}
+
+/* ===== 速写页相册样式 ===== */
+.sketch-page #gallery-container {
+  background: url('./media/aaa.jpg') repeat;
+  background-size: auto;
+}
+
+.sketch-page #gallery-footer {
+  background: rgba(255, 255, 255, 0.35);
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* ===== 缩略图样式 ===== */
+.gallery-thumbnails {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.gallery-thumbnail {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  min-height: 45px;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+}
+
+.gallery-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 3px;
+}
+
+.gallery-thumbnail.active {
+  border-color: transparent;
+}
+
+.gallery-thumbnail.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  border-radius: 0;
+}
+
+.gallery-thumbnail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  border-radius: 0;
+}
+
+.gallery-thumbnail:hover::before {
+  opacity: 1;
+}
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 810px) {
+  #gallery-close {
+    position: fixed;
+    top: 35px;
+    right: 15px;
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: 'mil', sans-serif;
+    font-size: 40px; /* 移动端字号放大至原来的2倍 */
+    color: #999;
+    transition: color 0.3s ease;
+    z-index: 3002;
+  }
+  
+  /* 移动端隐藏左右箭头按钮 */
+  #gallery-prev,
+  #gallery-next {
+    display: none !important;
+  }
+  
+  #gallery-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3001;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  #gallery-image {
+    width: 100%;
+    height: calc(100vh - 45px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@media (min-width:810px) and (max-width:1440px) {
+    #gallery-prev {
+        left: 15px;
+    }
+
+    #gallery-next {
+        right: 15px;
+    }
+
+    #gallery-close {
+        top: 35px;
+        right: 15px;
+    }
+}
+
+@media (min-width:1440px) {
+    #gallery-prev {
+        left: 25px;
+    }
+
+    #gallery-next {
+        right: 25px;
+    }
+
+    #gallery-close {
+        top: 35px;
+        right: 25px;
+    }
+}
+
+.illustration-page #gallery-close:hover {
+  color: #333;
+}
+
+.illustration-page .gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: #999;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-family: 'mil', sans-serif;
+  font-size: 40px; /* 非移动端字号放大至原来的2倍 */
+  transition: color 0.3s ease;
+}
+
+.illustration-page .gallery-nav:hover {
+  color: #333;
+}
+
+.illustration-page #gallery-prev {
+  left: 15px;
+}
+
+.illustration-page #gallery-next {
+  right: 15px;
+}
+
+.illustration-page #gallery-close {
+  right: 15px;
+}
+
+.sketch-page #gallery-close:hover {
+  color: #333;
+}
+
+/* 速写页导航按钮样式 */
+.sketch-page .gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: #999;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-family: 'mil', sans-serif;
+  font-size: 40px; /* 非移动端字号放大至原来的2倍 */
+  transition: color 0.3s ease;
+}
+
+.sketch-page .gallery-nav:hover {
+  color: #333;
+}
+
+.sketch-page #gallery-prev {
+  left: 15px;
+}
+
+.sketch-page #gallery-next {
+  right: 15px;
+}
+
+.sketch-page #gallery-prev,
+.sketch-page #gallery-next {
+  display: block;
+}
+
+/* 插画页图片容器蒙版效果 */
+.illustration-page .image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.15) 82.5%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.15) 82.5%, rgba(0, 0, 0, 0.3) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+  transform: scale(1.1);
+  transform-origin: center;
+  border-radius: 5px;
+}
+
+/* 速写页图片容器蒙版效果 */
+.sketch-page .image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.08) 15%, rgba(0, 0, 0, 0.08) 82.5%, rgba(0, 0, 0, 0.15) 100%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.08) 15%, rgba(0, 0, 0, 0.08) 82.5%, rgba(0, 0, 0, 0.15) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+  transform: scale(1.1);
+  transform-origin: center;
+  border-radius: 5px;
+}
+
+/* 插画页相册文字栏样式 */
+.illustration-page #gallery-text {
+  position: fixed;
+  bottom: 55px; /* 位于底部缩略图上方 */
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3001;
+  height: 20px; /* 从37px减少到20px，因为只有一行字 */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* 移除背景色，与相册大图区域共用背景 */
+  text-align: center;
+}
+
+/* 调整插画页相册图片区域高度，为文字栏留出空间 */
+.illustration-page #gallery-image {
+  height: calc(100vh - 75px); /* 减去文字栏20px和底部缩略图55px */
+}
+
+/* 相册文字栏专用样式类 */
+.gallery-copyright {
+  font-family: mil;
+  font-size: 11px;
+  line-height: 14px;
+  color: rgb(128, 128, 128);
+  margin-bottom: 1px;
+  margin-top: 1px; /* 从3px减少到1px，让文字向上移动2px */
+}
+
+.gallery-authorization {
+  font-family: mil;
+  font-size: 11px;
+  line-height: 14px;
+  color: rgb(128, 128, 128);
+  margin-bottom: 8px;
+}
+
+/* 速写页相册文字栏样式 */
+.sketch-page #gallery-text {
+  position: fixed;
+  bottom: 55px; /* 位于底部缩略图上方 */
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3001;
+  height: 20px; /* 从37px减少到20px，因为只有一行字 */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* 移除背景色，与相册大图区域共用背景 */
+  text-align: center;
+}
+
+/* 调整速写页相册图片区域高度，为文字栏留出空间 */
+.sketch-page #gallery-image {
+  height: calc(100vh - 75px); /* 减去文字栏20px和底部缩略图55px */
+} 
+
+/* 保持原有的间距逻辑 */
+.res.grid-layout-complete .img2 {
+  margin-right: 10px;
+}
+
+.res.grid-layout-complete .img2:last-child {
+  margin-right: 0;
+}
+
+/* 新增：配合JavaScript计算的样式 */
+.image-container.ratio-calculated {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.45s ease;
+}
+
+.image-container.ratio-calculated img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.45s ease;
+  border-radius: 5px;
+  display: block;
+}
+
+/* 新增：基于比例系数的样式 */
+.image-container.ratio-based {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.45s ease;
+}
+
+.image-container.ratio-based img {
+  width: 100%;
+  height: auto; /* 让图片保持原始长宽比 */
+  object-fit: contain; /* 保持完整图片，不裁剪 */
+  object-position: center;
+  transition: transform 0.45s ease;
+  border-radius: 5px;
+  display: block;
+}
+
+/* 悬停效果 */
+.image-container.ratio-based:hover img {
+  transform: scale(1.025);
+}
+
+.image-container.ratio-based::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.08) 15%, rgba(0, 0, 0, 0.08) 82.5%, rgba(0, 0, 0, 0.15) 100%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.08) 15%, rgba(0, 0, 0, 0.08) 82.5%, rgba(0, 0, 0, 0.15) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+  transform: scale(1.1);
+  transform-origin: center;
+  border-radius: 5px;
+}
+
+.image-container.ratio-based:hover::before {
+  opacity: 1;
+}
+
+/* 响应式适配 */
+@media (max-width: 810px) {
+  .image-container.ratio-based {
+    min-height: 150px; /* 移动端最小高度 */
+  }
+}
+
+@media (min-width: 1440px) {
+  .image-container.ratio-based {
+    min-height: 200px; /* 大屏幕最小高度 */
+  }
+} 
