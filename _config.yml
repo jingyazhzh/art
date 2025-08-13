@@ -1,4 +1,13 @@
-url: "https://jingyazh.com"
+url: "https://www.jingyazh.com"  
 baseurl: ""
-permalinks:
-  pretty: true
+permalink: pretty
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      permalink: pretty
