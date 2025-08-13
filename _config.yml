@@ -12,6 +12,3 @@ defaults:
     values:
       permalink: /:categories/
       include: ['.htaccess'] 
-
-
-<a href="{{ 'index' | permalink }}">Home</a>
