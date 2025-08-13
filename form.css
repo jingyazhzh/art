@@ -7,8 +7,18 @@
 html, body{height:100%}
 
 
+
+
+/* 定义激活页导航菜单 */
+.nav-menu-item.active {
+  opacity: 0.45;}
+
 /*手机端*/
 @media (max-width:810px) {
+    a[href='./index.html'] img[src*="zuo.png"] {
+    transform: translateX(17.5px);}
+  
+    .detailimg{margin-left:30px;margin-right: 30px;}
   .res{display:flex; flex-direction: column;}
   .ham{display:block}
   .navblock{display:none;}
@@ -51,11 +61,7 @@ html, body{height:100%}
     transform: translateX(10px);
   }
   
-  /* zuo.png 向左10px位移 */
-  a[href='./主页.html'] img[src*="zuo.png"] {
-    transform: translateX(-10px);
-  }
-  
+
   /* 统一移动端留白系统 - 使用30px作为标准留白 */
   /*居中文字段*/
   .ctext{text-align: center; margin-left:30px; margin-right: 30px;}
@@ -70,14 +76,7 @@ html, body{height:100%}
   .img1{ margin:10px 30px; }
   .img2{ margin:10px 30px; }
   
-  /* 移动端side栏设置 - 只隐藏内容区域的side栏，不动导航栏 */
-  .res .side{display:none;} 
-  .res .sketch-side{display:none;}
-  
-  /* 移除重复的右边留白设置，因为已经在上面统一设置了 */
-  /* .code1:last-child, .code13:last-child, .img1:last-child, .img2:last-child {
-    margin-right: 30px;
-  } */
+
   
   .add60{margin-left: 30px;}
   
@@ -86,13 +85,6 @@ html, body{height:100%}
   .sketch-page .res {
     display: flex;
     flex-direction: column;
-  }
-  
-  .illustration-page .side,
-  .sketch-page .side,
-  .illustration-page .sketch-side,
-  .sketch-page .sketch-side {
-    display: none;
   }
   
   .illustration-page .ctext,
@@ -112,15 +104,10 @@ html, body{height:100%}
   
   /* 隐藏插画页和速写页中的间距元素 */
   .illustration-page [style*="flex:0.03"],
-  .sketch-page [style*="flex:0.02"] {
+  .sketch-page [style*="flex:0.15"] {
     display: none;
   }
  
-  /* 导航栏移动端留白设置 - 使用更高优先级 */
-  nav {
-    padding-left: 30px !important;
-    padding-right: 30px !important;
-  }
   
   #gallery-close {
     position: fixed;
@@ -195,28 +182,8 @@ html, body{height:100%}
 
 /* 非移动端导航栏位移设置 */
 @media (min-width: 811px) {
-  /* zuo.png 向左30px位移 */
-  a[href='./主页.html'] img[src*="zuo.png"] {
-    transform: translateX(-30px);
-  }
   
-  /* 减少导航栏菜单项间距，让左右两侧图标能够更好地向中央收缩 */
-  div[onclick*="window.location.href='./插画.html'"],
-  div[onclick*="window.location.href='./装置.html'"],
-  div[onclick*="window.location.href='./速写.html'"],
-  div[onclick*="window.location.href='./关于.html'"] {
-    padding-left: 20px !important; /* 从40px减少到20px */
-  }
-  
-  /* 在更小的非移动端窗口中进一步减少间距 */
-  @media (max-width: 1200px) {
-    div[onclick*="window.location.href='./插画.html'"],
-    div[onclick*="window.location.href='./装置.html'"],
-    div[onclick*="window.location.href='./速写.html'"],
-    div[onclick*="window.location.href='./关于.html'"] {
-      padding-left: 15px !important; /* 进一步减少到15px */
-    }
-  }
+
   
   @media (max-width: 1000px) {
     div[onclick*="window.location.href='./插画.html'"],
@@ -320,6 +287,8 @@ nav {
   .mobile-nav.show {
     display: none !important;
   }
+
+  .sketch-line{display:none;}
 }
 
 .mobile-nav-content {
@@ -412,18 +381,19 @@ nav {
 
 /*网页端*/
 @media (min-width:1440px) {
-  .res{display:flex; flex-direction: row;}
+  .res{display:flex; flex-direction: row; align-items: stretch; }
   .ham{display:none}
   .ham-toggle{display: none;}
   .caidan{display: none;}
   .sketchnav{display:block}
+  .sketch-line{display:flex; width:100%;height:35px;background-color:white; opacity: 0;margin-left: -10px;}
 
  /*居中文字段*/  
  .ctext{text-align: center;flex:1;}
 
   /*插画页图片box宽度比例*/
   .code1{ flex:1;}
-  .code13{flex:1.3333;}
+  .code13{flex:2;}
   .side{flex:0.4;}
   .siden{flex:0.22}
 
@@ -432,13 +402,10 @@ nav {
   .img2{ flex:2}
   .sketch-side{flex:1;}
 
-  /* 速写页图片间距 */
-  .sketch-page .img2 {
-    margin-right: 10px;
-  }
-  .sketch-page .img2:last-child {
-    margin-right: 0;
-  }
+  
+  
+
+
 }
 
 /*IPAD网页端*/
@@ -448,6 +415,8 @@ nav {
   .ham-toggle{display: none;}
   .caidan{display: none;}
   .sketchnav{display:block}
+  .sketch-line{display:flex; width:100%;height:35px;background-color:white; opacity: 0;margin-left: -10px;}
+
 
  /*居中文字段*/  
  .ctext{text-align: center; flex:1;}  
@@ -463,23 +432,13 @@ nav {
  .img2{ flex:2}
  .sketch-side{width:105px;}
 
- /* 速写页图片间距 */
- .sketch-page .img2 {
-   margin-right: 10px;
- }
- .sketch-page .img2:last-child {
-   margin-right: 0;
- }
+
 }
 
-/*手机端*/
-@media (min-width:000px) and (max-width:810px) {
-  /* 删除这个重复的媒体查询 */
-}
 
  @font-face {
-    font-family: 'mib';
-    src: url('media/MiSans-Bold.ttf');
+    font-family: 'stix';
+    src: url('media/STIXGeneral-Bold.ttf');
   }
  @font-face {
     font-family: 'mil';
@@ -531,16 +490,6 @@ nav {
   cursor: pointer;
 }
 
-/* 鼠标悬停放大box
-.code1:hover {
-  position: relative;
-  transform: scale(1.025);
-  transition: 0.4s;}
-.code13:hover {
-  position: relative;
-  transform: scale(1.025);
-  transition: 0.4s;}
-*/
 
 /* NAV 菜单键 悬停变白图片*/
 .navblock{
@@ -598,11 +547,14 @@ nav {
   cursor: pointer;
 }
 
+
+
 .image-container img {
   width: 100%;
-  height: auto;
+  height: 100%;
   transition: transform 0.45s ease;
   border-radius: 5px;
+  object-fit: cover ;
   display: block;
 }
 
@@ -616,6 +568,48 @@ nav {
   display: flex;
   flex-direction: column;
 }
+
+/* 0812修改开始*/
+/* 让外层图片框保持4:3比例 */
+.code1, .code13 {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* 保证下方文字贴底 */
+}
+
+.code1{  aspect-ratio: 2 / 3;}
+.code13 { aspect-ratio: 4 / 3;}
+
+/* 让图片容器和图片都100%填充 */
+.code1 .image-container,
+.code13 .image-container {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  background: #f8f8f8;
+}
+
+.code1 .image-container img,
+.code13 .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 5px;
+}
+
+
+
 
 /* 插画页面图片容器样式 */
 .illustration-page .image-container {
@@ -647,13 +641,45 @@ nav {
 
 /* 速写页容器样式 */
 .img1, .img2 {
+
   cursor: pointer;
   box-sizing: border-box;
   padding-bottom: -5px;
   position: relative;
   overflow: hidden;
   width: 100%;
+  
 }
+
+.img2 {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  /* 可根据布局需要设置最大宽度或flex属性 */
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.img1 {
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* 让图片自动填充父容器且裁切 */
+.img1 img,
+.img2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 
 /* 速写页容器蒙版效果 */
 .img1::before, .img2::before {
@@ -673,6 +699,7 @@ nav {
   transform: scale(1.1);
   transform-origin: center;
 }
+
 
 /* 插画页容器悬停效果 */
 .code1:hover .image-container img,
@@ -1319,3 +1346,20 @@ nav {
     min-height: 200px; /* 大屏幕最小高度 */
   }
 } 
+
+
+.gallery-image-slide {
+  position: relative;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1);
+  will-change: transform;
+  z-index: 1;
+}
+#gallery-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  overflow: hidden;
+}
