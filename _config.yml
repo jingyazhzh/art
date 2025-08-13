@@ -10,7 +10,7 @@ defaults:
   - scope:
       path: ""
     values:
-      permalink: pretty
+      permalink: /:categories/
       include: ['.htaccess'] 
 
 
