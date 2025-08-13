@@ -316,7 +316,7 @@
       </div>
   
         <!--导航栏下划线-->
-      <div style="display:flex;top:43px;position:fixed;width:100%;">
+      <div style="display:flex;top:43.5px;position:fixed;width:100%;">
         <div><img src="./media/heng.png" width="100%"></div>
         </div>
          <div class="mobile-nav">
@@ -419,9 +419,12 @@ let isGalleryOpen = false;
 function renderThumbnails() {
     const galleryFooter = document.getElementById('gallery-footer');
     galleryFooter.innerHTML = `
-        <div class="gallery-thumbnails" style="overflow-x:auto; white-space:nowrap;">
+        <div class="gallery-thumbnails" style="overflow-x:auto; white-space:nowrap;
+            text-align: center;
+            display: block; 
+            justify-content: center; ">
             ${images.map((src, index) => `
-                <div class="gallery-thumbnail" data-index="${index}" style="display:inline-block;width:45px;height:45px;margin-right:5px;cursor:pointer;">
+                <div class="gallery-thumbnail" data-index="${index}" style="display:inline-block;width:45px;height:45px;margin-right:0px;cursor:pointer;">
                     <img src="${src}" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             `).join('')}
