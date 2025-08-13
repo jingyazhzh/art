@@ -1,3 +1,4 @@
-theme: jekyll-theme-minimal
-
-permalink: pretty
+url: "https://jingyazh.com"
+baseurl: ""
+permalinks:
+  pretty: true
