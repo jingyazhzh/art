@@ -11,6 +11,7 @@ defaults:
       path: ""
     values:
       permalink: pretty
+      include: ['.htaccess'] 
 
 
 <a href="{{ 'index' | permalink }}">Home</a>
